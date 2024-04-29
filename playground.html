@@ -6,5 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Playground — Complete Intro to Vue 3</title>
   </head>
-  <body></body>
+  <body>
+    <h1>Hey Frontend masters</h1>
+    <div id="app">
+      <p v-if="message.length % 2 !== 0">Odd: {{message}}</p>
+      <p v-else>Even: {{message}}</p>
+
+      <ul v-for="item in numbers">
+        <p>{{item.uuid}}</p>
+        <li v-for="number in item.list">{{number}}</li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp } = Vue;
+      const app = createApp({
+        data() {
+          return {
+            message: "Hello  world.",
+            numbers: [
+              {
+                name: "1",
+                uuid: "a4cc4aa6-3b8c-49a3-9e52-ead79b3ce9ac",
+                list: [1, 1, 0],
+              },
+              {
+                name: "2",
+                uuid: "99b63b01-d367-4b84-8b13-e2692f88f565",
+                list: [2, 2, 2],
+              },
+              {
+                name: "3",
+                uuid: "e88d9cc5-b35b-4b12-9ae8-ada59d6bcb53",
+                list: [3, 3, 3],
+              },
+              {
+                name: "4",
+                uuid: "fa0a11cb-1d04-4f02-9591-c0274fda8d47",
+                list: [4, 4, 4],
+              },
+              {
+                name: "5",
+                uuid: "a1c92e2a-1272-4df9-99d3-1c6fe1d0cd92",
+                list: [5, 5, 5],
+              },
+            ],
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
 </html>
